@@ -95,7 +95,7 @@ ${message}
   icon: FaWhatsapp,
   title: 'WhatsApp',
   content: '+919763723391',
-  link: 'https://wa.me/919763723391?text=Hi%20GOT%20Nexus,%20I%20am%20looking%20for%20a%20professional%20website.%20Can%20we%20discuss%20my%20requirements?',
+  link: 'https://wa.me/+917711997736?text=Hi%20GOT%20Nexus,%20I%20am%20looking%20for%20a%20professional%20website.%20Can%20we%20discuss%20my%20requirements?',
   description: 'Fastest way to reach us—usually reply within an hour'
 }
 ,
@@ -109,9 +109,9 @@ ${message}
     {
       icon: HiPhone,
       title: 'Phone',
-      content: '+919763723391',
-      link: 'tel:+919763723391',
-      description: 'Available Mon-Fri, 9am-6pm'
+      content: '+917711997736 / +919420277691',
+      link: 'tel:+917711997736',
+      description: 'Available Mon-Sun, 9am-6pm'
     }
   ];
 
