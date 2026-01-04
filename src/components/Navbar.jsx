@@ -1,0 +1,194 @@
+import React, { useState, useEffect, useCallback, memo } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { HiMenuAlt3, HiX } from 'react-icons/hi';
+
+// Optimized Navbar with throttled scroll handling and React Icons hamburger
+const Navbar = memo(() => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const location = useLocation();
+
+  // Throttled scroll handler for better performance
+  useEffect(() => {
+    let ticking = false;
+    let lastScrollY = 0;
+    
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          setScrolled(currentScrollY > 50);
+          
+          // Hide navbar on scroll down, show on scroll up
+          if (currentScrollY > lastScrollY && currentScrollY > 300) {
+            setIsVisible(false);
+          } else {
+            setIsVisible(true);
+          }
+          
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') setMobileMenuOpen(false);
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, []);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  const navLinks = [
+    { path: '/', label: 'Home' },
+    { path: '/services', label: 'Services' },
+    { path: '/why-us', label: 'Why Us' },
+    { path: '/projects', label: 'Projects' },
+  ];
+
+  const toggleMenu = useCallback(() => {
+    setMobileMenuOpen(prev => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setMobileMenuOpen(false);
+  }, []);
+
+  return (
+    <>
+      <nav 
+        className={`navbar navbar-expand-lg navbar-custom ${scrolled ? 'scrolled' : ''} ${isVisible ? '' : 'navbar-hidden'}`}
+        style={{
+          transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease'
+        }}
+      >
+        <div className="container">
+          <Link to="/" className="navbar-brand gn-brand">
+            <img
+              src="media/OGT.png"
+              alt="GOT Nexus Logo"
+              className="gn-logo"
+              loading="eager"
+            />
+            <span className="gn-text">
+              GOT <span className="gn-text-highlight">Nexus</span>
+            </span>
+          </Link>
+
+          {/* Hamburger Button with React Icons */}
+          <button 
+            className="hamburger-btn"
+            type="button" 
+            onClick={toggleMenu}
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? (
+              <HiX className="hamburger-icon" />
+            ) : (
+              <HiMenuAlt3 className="hamburger-icon" />
+            )}
+          </button>
+
+          {/* Desktop Menu */}
+          <div className="navbar-collapse d-none d-lg-flex">
+            <ul className="navbar-nav ms-auto align-items-center">
+              {navLinks.map((link) => (
+                <li className="nav-item" key={link.path}>
+                  <Link 
+                    className={`nav-link ${location.pathname === link.path ? 'active' : ''}`} 
+                    to={link.path}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="nav-item">
+                <Link className="nav-link btn-cta" to="/contact">
+                  Get Started
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div 
+        className={`mobile-menu-overlay ${mobileMenuOpen ? 'active' : ''}`}
+        onClick={closeMenu}
+      />
+
+      {/* Mobile Menu Drawer */}
+      <div className={`mobile-menu ${mobileMenuOpen ? 'active' : ''}`}>
+        <div className="mobile-menu-header">
+          <Link to="/" className="gn-brand" onClick={closeMenu}>
+            <img src="media/OGT.png" alt="GOT Nexus Logo" className="gn-logo" />
+            <span className="gn-text">
+              GOT <span className="gn-text-highlight">Nexus</span>
+            </span>
+          </Link>
+          <button 
+            className="mobile-menu-close"
+            onClick={closeMenu}
+            aria-label="Close menu"
+          >
+            <HiX />
+          </button>
+        </div>
+        
+        <nav className="mobile-menu-nav">
+          {navLinks.map((link, index) => (
+            <Link 
+              key={link.path}
+              className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
+              to={link.path}
+              onClick={closeMenu}
+              style={{ animationDelay: `${index * 0.05}s` }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link 
+            className="mobile-nav-cta" 
+            to="/contact"
+            onClick={closeMenu}
+            style={{ animationDelay: `${navLinks.length * 0.05}s` }}
+          >
+            Get Started
+          </Link>
+        </nav>
+      </div>
+    </>
+  );
+});
+
+Navbar.displayName = 'Navbar';
+
+export default Navbar;
