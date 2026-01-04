@@ -100,9 +100,9 @@ const Footer = memo(() => {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+919763723391">
+                  <a href="tel:+917711997736 ">
                     <HiPhone />
-                    <span>+919763723391</span>
+                    <span>+917711997736 / +919420277691</span>
                   </a>
                 </li>
                 <li>
