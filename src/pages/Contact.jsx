@@ -102,7 +102,7 @@ ${message}
     {
       icon: HiEnvelope,
       title: 'Email',
-      content: 'got.nexuses@gmaile.com',
+      content: 'got.nexuses@gmail.com',
       link: 'mailto:got.nexuses@gmail.com',
       description: 'For detailed inquiries—we respond within 24 hours'
     },
