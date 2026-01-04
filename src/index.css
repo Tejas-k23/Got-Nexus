@@ -2056,3 +2056,15 @@ html {
 
 
 
+/* Desktop */
+.navbar-custom {
+  padding: 1rem 0;
+  transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar-custom {
+    padding: 0.4rem 0;
+  }
+}

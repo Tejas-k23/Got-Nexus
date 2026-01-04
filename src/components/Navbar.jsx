@@ -85,7 +85,7 @@ const Navbar = memo(() => {
         className={`navbar navbar-expand-lg navbar-custom ${scrolled ? 'scrolled' : ''} ${isVisible ? '' : 'navbar-hidden'}`}
         style={{
           transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease'
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease'
         }}
       >
         <div className="container">
