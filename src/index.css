@@ -204,6 +204,7 @@ img {
   left: 0;
   right: 0;
   z-index: 1000;
+  max-height: 12vh;
 }
 
 .navbar-custom.scrolled {
