@@ -178,7 +178,7 @@ function Projects() {
                 <HiArrowRight />
               </Link>
               <a 
-                href="https://wa.me/91976372339?text=Hello%20GOT%20Nexus%20Team,%20I%20am%20interested%20in%20website%20development%20services.%20Please%20share%20more%20details." 
+                href="https://wa.me/+919763723391?text=Hello%20GOT%20Nexus%20Team,%20I%20am%20interested%20in%20website%20development%20services.%20Please%20share%20more%20details." 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn-whatsapp"

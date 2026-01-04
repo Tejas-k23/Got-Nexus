@@ -77,7 +77,7 @@ ${message}
 
   const encodedMessage = encodeURIComponent(whatsappMessage.trim());
 
-  const whatsappURL = `https://wa.me/91976372339?text=${encodedMessage}`;
+  const whatsappURL = `https://wa.me/+919763723391?text=${encodedMessage}`;
 
   window.open(whatsappURL, '_blank');
 
@@ -95,7 +95,7 @@ ${message}
   icon: FaWhatsapp,
   title: 'WhatsApp',
   content: '+919763723391',
-  link: 'https://wa.me/91976372339?text=Hi%20GOT%20Nexus,%20I%20am%20looking%20for%20a%20professional%20website.%20Can%20we%20discuss%20my%20requirements?',
+  link: 'https://wa.me/919763723391?text=Hi%20GOT%20Nexus,%20I%20am%20looking%20for%20a%20professional%20website.%20Can%20we%20discuss%20my%20requirements?',
   description: 'Fastest way to reach us—usually reply within an hour'
 }
 ,
@@ -190,7 +190,7 @@ ${message}
                     Get instant responses! Click below to start a conversation.
                   </p>
                   <a 
-                    href="https://wa.me/91976372339?text=Hello%20GOT%20Nexus%20Team,%20I%20am%20interested%20in%20website%20development%20services.%20Please%20share%20more%20details.." 
+                    href="https://wa.me/+919763723391?text=Hello%20GOT%20Nexus%20Team,%20I%20am%20interested%20in%20website%20development%20services.%20Please%20share%20more%20details.." 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="whatsapp-chat-btn"

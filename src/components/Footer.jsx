@@ -28,7 +28,7 @@ const Footer = memo(() => {
     { icon: FaInstagram, href: '#', label: 'Instagram' },
     { icon: FaLinkedin, href: '#', label: 'LinkedIn' },
     { icon: FaTwitter, href: '#', label: 'Twitter' },
-    { icon: FaWhatsapp, href: 'https://wa.me/91976372339?text=Hello%20GOT%20Nexus%20Team,%20I%20am%20interested%20in%20website%20development%20services.%20Please%20share%20more%20details.', label: 'WhatsApp', external: true },
+    { icon: FaWhatsapp, href: 'https://wa.me/+919763723391?text=Hello%20GOT%20Nexus%20Team,%20I%20am%20interested%20in%20website%20development%20services.%20Please%20share%20more%20details.', label: 'WhatsApp', external: true },
   ];
 
   return (
@@ -106,7 +106,7 @@ const Footer = memo(() => {
                   </a>
                 </li>
                 <li>
-                  <a href="https://wa.me/91976372339?text=Hello%20GOT%20Nexus%20Team,%20I%20am%20interested%20in%20website%20development%20services.%20Please%20share%20more%20details." target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/+919763723391?text=Hello%20GOT%20Nexus%20Team,%20I%20am%20interested%20in%20website%20development%20services.%20Please%20share%20more%20details." target="_blank" rel="noopener noreferrer">
                     <FaWhatsapp />
                     <span>WhatsApp Us</span>
                   </a>
